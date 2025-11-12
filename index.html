@@ -1,0 +1,127 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Panel de Actualizaciones</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    body {
+  background: #0d1117;
+  color: #c9d1d9;
+  font-family: "Poppins", sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+header, footer {
+  text-align: center;
+  padding: 1rem;
+  background: #161b22;
+  color: #58a6ff;
+}
+
+main {
+  padding: 2rem;
+}
+
+.news-grid {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.news-card {
+  background: #161b22;
+  padding: 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 0 10px #0003;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.news-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 0 15px #58a6ff44;
+}
+
+.news-card a {
+  color: #58a6ff;
+  text-decoration: none;
+}
+
+.news-card a:hover {
+  text-decoration: underline;
+}
+
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Actualizaciones Recientes</h1>
+  </header>
+
+  <main id="main-content">
+    <div id="news-container" class="news-grid">
+      <!-- Aquí se insertarán las noticias dinámicamente -->
+    </div>
+  </main>
+
+  <footer>
+    <p>© 2025 Agencia Os — Innovación y Ética</p>
+  </footer>
+
+
+
+
+
+  <script>
+    
+// Datos de tus proyectos o enlaces
+const proyectos = [
+  {
+    titulo: "Portafolio Profesional Oscar",
+    descripcion: "Presentación visual de mis proyectos, servicios y CV.",
+    url: "https://ozclef.github.io/portafolio",
+    fecha: "2025-11-10"
+  },
+  {
+    titulo: "Asesoría Legal y Ética Digital",
+    descripcion: "Documentación y servicios de consultoría profesional.",
+    url: "https://ozclef.github.io/asesoria-legal",
+    fecha: "2025-11-08"
+  },
+  {
+    titulo: "Tesis: Autoconciencia y Superación",
+    descripcion: "Investigación sobre desarrollo personal, ética y tecnología.",
+    url: "https://ozclef.github.io/indice-tesis",
+    fecha: "2025-11-05"
+  }
+];
+
+// Función para mostrar dinámicamente las noticias
+function mostrarNoticias() {
+  const contenedor = document.getElementById("news-container");
+  contenedor.innerHTML = ""; // Limpia contenido previo
+
+  proyectos.forEach((p) => {
+    const card = document.createElement("div");
+    card.className = "news-card";
+    card.innerHTML = `
+      <h2>${p.titulo}</h2>
+      <p>${p.descripcion}</p>
+      <small>📅 ${p.fecha}</small><br>
+      <a href="${p.url}" target="_blank">Ver proyecto</a>
+    `;
+    contenedor.appendChild(card);
+  });
+}
+
+// Llamar la función al cargar
+document.addEventListener("DOMContentLoaded", mostrarNoticias);
+
+
+  </script>
+  
+  <script src="script.js"></script>
+</body>
+</html>
